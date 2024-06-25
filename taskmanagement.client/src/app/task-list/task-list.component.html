@@ -1,0 +1,29 @@
+
+<div class="task-list">
+    <div class="task-item" *ngFor="let task of tasks">
+      <div class="task-details">
+        <div class="form-field">
+          <label>נושא:</label>
+          <input matInput [value]="task.subject" readonly>
+        </div>
+  
+        <div class="form-field">
+          <label>משתמש:</label>
+          <input matInput [value]="task.user?.name" readonly>
+        </div>
+  
+        <div class="form-field">
+          <label>תאריך יעד:</label>
+          <input matInput [value]="task.targetDate | date:'dd.MM.yyyy'" readonly>
+        </div>
+  
+        <div class="form-field">
+          <label>בוצע:</label>
+          <mat-checkbox [checked]="task.isCompleted" disabled></mat-checkbox>
+        </div>
+  
+        <button mat-raised-button color="warn" (click)="deleteTask(task.id)">מחק</button>
+      </div>
+    </div>
+  </div>
+  
